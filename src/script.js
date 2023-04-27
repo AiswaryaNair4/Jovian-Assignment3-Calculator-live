@@ -3,7 +3,7 @@ const buttons = document.getElementsByClassName('btn');
 let currValue = ""
 let specialOperators = ""
 
-// console.log(display);
+console.log(display);
 
 function displayResult(a){ 
   console.log(a);
@@ -55,7 +55,7 @@ function rad(){
 
 function deg(){
   let input = display.value;
-  let result = (input* (180/Math.PI);
+  let result = (input* (180/Math.PI));
   display.value = result;
 }
 
