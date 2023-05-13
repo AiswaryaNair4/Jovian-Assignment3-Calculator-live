@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const display = document.getElementById('calcResult');
   const buttons = document.getElementsByClassName('btn');
-  let currValue = "";
+  let currValue = ""; 
+  let startValue = true;
+  //  display.value = currValue;
   let inverse =false;
 
   
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .replace('%', '*0.01')
       .replace('sin', 'Math.sin')
       .replace('cos', 'Math.cos')
-      .replace('ln', 'Math.log')
+      .replace('ln', 'log')
       .replace('π', 'Math.PI')
       .replace('log', 'Math.log10')
       .replace('e', 'Math.E')
@@ -65,12 +67,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const button = buttons[i];
     console.log(button.innerText);
     button.addEventListener('click',function(){
+      if(startValue == true && button.innerText == "0"){
+        startValue=false;
+        button.innerText = "";
+      }
      const value = button.innerText;
         console.log(value);
       try{        
         if (value == "AC") {
-          currValue = "";
+          startValue = true;
+          currValue = "0";
           display.value = currValue;
+          currValue = "";
           document.getElementById("InvButton").style.backgroundColor = "#dadce0";
         } else if(value == "Inv") {
           currValue = "";
