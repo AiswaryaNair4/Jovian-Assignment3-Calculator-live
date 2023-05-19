@@ -67,9 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const button = buttons[i];
     console.log(button.innerText);
     button.addEventListener('click',function(){
-      if(startValue == true && button.innerText == "0"){
+      if(startValue == true && display.value === "0"){
         startValue=false;
-        button.innerText = "";
+        display.value = "";
       }
      const value = button.innerText;
         console.log(value);
@@ -101,6 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   function  factorial(){
+    if(display.value==="0" || display.value===""){
+      currValue = "1";
+    }
+    else{
     let inputString = currValue;
     let index = inputString.indexOf("!");
     let startIndex = index-1;
@@ -129,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(answer);
     currValue = operatorClicked + answer ;
     console.log("currValue:" + currValue);
+  }
   }
 
   function exponentBase10(){
